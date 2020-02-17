@@ -1,6 +1,8 @@
 pipeline{
     agent any
-    
+    environment{
+        PATH = "/usr/local/Cellar/maven/3.6.3/bin:$PATH"
+    }
     stages{
         stage("Git Checkout"){
             steps{
@@ -8,15 +10,9 @@ pipeline{
             }
         }
         stage("Maven Build"){
-            
-                def mvnHome = tool name: 'Maven', type: 'maven'
-                def mvnCmd="${mvnHome}/bin/mvn"
-                sh "${mvnCmd } clean install" 
-
-                
-            
+            steps{
+                sh "mvn clean install"
+            }
         }
     }
 }
-
-
