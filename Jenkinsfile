@@ -8,13 +8,13 @@ pipeline{
             }
         }
         stage("Maven Build"){
-            steps{
+            
                 def mvnHome = tool name: 'Maven', type: 'maven'
                 def mvnCmd="${mvnHome}/bin/mvn"
                 sh "${mvnCmd } clean install" 
 
                 
-            }
+            
         }
     }
 }
