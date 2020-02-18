@@ -15,12 +15,14 @@ pipeline{
                     mvn clean install
                 }
         }
+        }
         stage("Docker Build"){
             steps{
                 script
                 {
                 docker ps 
                 }
+               }
         }
     }
 }
