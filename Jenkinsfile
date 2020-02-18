@@ -11,18 +11,12 @@ pipeline{
         }
         stage("Maven Build"){
             steps{
-                script{
-                    mvn clean install
-                }
-        }
-        }
-        stage("Docker Build"){
-            steps{
                 script
-                {
-                docker ps 
+                    {
+                    mvn clean install
+                    }
                 }
-               }
-        }
-    }
+                              }
+        
+            }
 }
